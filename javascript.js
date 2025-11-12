@@ -64,7 +64,7 @@ function makeDraggable(el) {
   }
 }
 
-// ======= Dodaj Post It =======
+
 addNoteBtn.addEventListener("click", () => {
   const note = document.createElement("div");
   note.className = "note " + colors[Math.floor(Math.random() * colors.length)];
@@ -76,7 +76,7 @@ addNoteBtn.addEventListener("click", () => {
   board.appendChild(note);
 });
 
-// ======= Dodatj sliku =======
+
 addImageBtn.addEventListener("click", () => {
   const div = document.createElement("div");
   div.className = "pinned-img";
@@ -89,7 +89,6 @@ addImageBtn.addEventListener("click", () => {
   board.appendChild(div);
 });
 
-// ======= Dodaj citat =======
 addQuoteBtn.addEventListener("click", () => {
   const q = document.createElement("div");
   q.className = "quote";
@@ -101,7 +100,7 @@ addQuoteBtn.addEventListener("click", () => {
   board.appendChild(q);
 });
 
-// ======= Snimi Visual Board =======
+
 saveBtn.addEventListener("click", saveBoard);
 
 function saveBoard() {

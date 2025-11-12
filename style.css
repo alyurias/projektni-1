@@ -203,7 +203,7 @@ footer {
   outline: 2px dashed rgba(139, 94, 60, 0.5);
 }
 
-/* Dodatni efekti za interakciju */
+
 .note::after,
 .quote::after {
   content: '';
