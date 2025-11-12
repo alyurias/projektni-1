@@ -83,7 +83,7 @@ button:active {
   box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
-/* Posebni stilovi za svako dugme */
+
 .toolbar button:nth-child(1) { border-left: 2px solid #ff6b9d; }
 .toolbar button:nth-child(2) { border-left: 2px solid #a1ff9e; }
 .toolbar button:nth-child(3) { border-left: 2px solid #9e53ff; }
@@ -131,7 +131,7 @@ button:active {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
-/* JEDNOSTAVNE PUNE BOJE ZA BILJEŠKE */
+
 .noteColor1 {
   background: #ffd6e7;
   color: #8a4c5e;
