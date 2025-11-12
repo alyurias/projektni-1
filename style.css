@@ -1,72 +1,114 @@
+@font-face {
+  font-family: 'BrushUp';
+  src: url('fonts/BrushUp.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, sans-serif;
-  background: linear-gradient(135deg, #e3d7b4 0%, #d8c9a3 100%);
+  background: #ffeef8;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow: auto;
+  padding: 20px 0;
 }
 
 h1 {
-  margin-top: 15px;
-  color: #4b382a;
-  text-shadow: 2px 2px 3px rgba(0,0,0,0.1);
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  margin-top: 20px;
+  color: #472b20;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 3em;
+  font-family: 'BrushUp', 'Brush Script MT', cursive, sans-serif;
 }
 
+
 .toolbar {
-  background: rgba(255,255,255,0.95);
-  padding: 12px 24px;
-  border-radius: 16px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  padding: 8px 20px;
+  border-radius: 12px;
+  box-shadow: 
+    0 2px 8px rgba(0,0,0,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    0 1px 2px rgba(0,0,0,0.05);
   display: flex;
-  gap: 12px;
-  margin: 15px;
+  gap: 8px;
+  margin: 15px 0 30px 0;
   position: relative;
   z-index: 2;
-  border: 2px solid #8b5e3c;
-  backdrop-filter: blur(5px);
+  border: 1px solid #e0e0e0;
+  border-top: 1px solid #f0f0f0;
+}
+
+.toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 12px 12px 0 0;
 }
 
 button {
-  background: linear-gradient(to bottom, #8b5e3c 0%, #70472b 100%);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  padding: 10px 16px;
-  font-size: 14px;
+  background: #ffffff;
+  color: #5a5a5a;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-weight: 500;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 button:hover {
-  background: linear-gradient(to bottom, #9d6b45 0%, #7a5133 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  background: #f8f9fa;
+  border-color: #d63384;
+  color: #d63384;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 button:active {
   transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
+
+/* Posebni stilovi za svako dugme */
+.toolbar button:nth-child(1) { border-left: 2px solid #ff6b9d; }
+.toolbar button:nth-child(2) { border-left: 2px solid #a1ff9e; }
+.toolbar button:nth-child(3) { border-left: 2px solid #9e53ff; }
+.toolbar button:nth-child(4) { border-left: 2px solid #53ff8e; }
+.toolbar button:nth-child(5) { border-left: 2px solid #ffd79e; }
+
+.toolbar button:nth-child(1):hover { border-color: #ff6b9d; }
+.toolbar button:nth-child(2):hover { border-color: #a1ff9e; }
+.toolbar button:nth-child(3):hover { border-color: #9e53ff; }
+.toolbar button:nth-child(4):hover { border-color: #53ff8e; }
+.toolbar button:nth-child(5):hover { border-color: #ffd79e; }
 
 #board {
   position: relative;
-  width: 92%;
-  flex-grow: 1;
+  width: 94%;
+  min-height: 600px;
   background: url('slike/pluto.png');
   background-size: cover;
-  border-radius: 16px;
-  box-shadow: 
-    inset 0 4px 20px rgba(0,0,0,0.25),
-    0 8px 25px rgba(0,0,0,0.2);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   overflow: hidden;
   margin-bottom: 15px;
-  border: 3px solid #a78a6f;
+  border: 2px solid #a78a6f;
 }
 
 .note,
@@ -74,47 +116,50 @@ button:active {
 .pinned-img {
   position: absolute;
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: move;
   user-select: none;
-  box-shadow: 
-    0 6px 15px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255,255,255,0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  backdrop-filter: blur(2px);
+  border: 1px solid rgba(0,0,0,0.1);
 }
 
 .note:hover,
 .quote:hover,
 .pinned-img:hover {
-  transform: translateY(-3px) rotate(1deg);
-  box-shadow: 
-    0 8px 20px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255,255,255,0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
+/* JEDNOSTAVNE PUNE BOJE ZA BILJEŠKE */
 .noteColor1 {
-  background: linear-gradient(135deg, #fdfd96 0%, #fafa72 100%);
+  background: #ffd6e7;
+  color: #8a4c5e;
 }
 
 .noteColor2 {
-  background: linear-gradient(135deg, #ffb6b9 0%, #ff9fa3 100%);
+  background: #d6ffea;
+  color: #2d6b4c;
 }
 
 .noteColor3 {
-  background: linear-gradient(135deg, #c6f1e7 0%, #a8e8dc 100%);
+  background: #fff2d6;
+  color: #8a6b4c;
 }
 
 .noteColor4 {
-  background: linear-gradient(135deg, #f6d6ad 0%, #f3c995 100%);
+  background: #e7d6ff;
+  color: #5c4c8a;
 }
 
 .noteColor5 {
-  background: linear-gradient(135deg, #d4a5a5 0%, #cb8e8e 100%);
+  background: #d6f2ff;
+  color: #4c6b8a;
 }
 
 .noteColor6 {
-  background: linear-gradient(135deg, #b5ead7 0%, #9de2c8 100%);
+  background: #ffedd6;
+  color: #8a5c4c;
 }
 
 .note[contenteditable="true"] {
@@ -123,25 +168,34 @@ button:active {
   min-height: 80px;
   font-size: 15px;
   line-height: 1.4;
+  font-weight: 500;
 }
 
 .quote {
   font-family: "Georgia", serif;
-  color: #4b382a;
-  background: linear-gradient(135deg, #fff5e6 0%, #ffebd2 100%);
+  color: #5a4d8c;
+  background: #fff5f5;
   font-style: italic;
   text-align: center;
   width: 220px;
   padding: 18px;
-  border-left: 4px solid #d4a76a;
+  border-left: 4px solid #ff6b9d;
   line-height: 1.5;
+  font-weight: 500;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.pinned-img {
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 8px;
 }
 
 .pinned-img img {
   width: 140px;
   height: auto;
-  border-radius: 10px;
-  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.8);
   transition: transform 0.3s ease;
 }
 
@@ -151,16 +205,16 @@ button:active {
 
 footer {
   font-size: 14px;
-  color: #5b4636;
-  margin: 15px;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
+  color: #d63384;
+  margin: 10px;
+  font-weight: 500;
 }
 
 .delete-btn {
   position: absolute;
-  top: 4px;
+  top: 5px;
   right: 8px;
-  background: rgba(255,255,255,0.8);
+  background: #ff4444;
   border: none;
   border-radius: 50%;
   width: 22px;
@@ -168,15 +222,13 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #b30000;
-  font-size: 16px;
+  color: white;
+  font-size: 12px;
   font-weight: bold;
   cursor: pointer;
   opacity: 0;
   z-index: 1000;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  text-shadow: none;
 }
 
 .note:hover .delete-btn,
@@ -186,10 +238,8 @@ footer {
 }
 
 .delete-btn:hover {
-  background: rgba(255,255,255,0.95);
-  color: #ff0000;
-  transform: scale(1.15) rotate(90deg);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  background: #ff0000;
+  transform: scale(1.1);
 }
 
 .note a,
@@ -200,25 +250,6 @@ footer {
 
 .quote:focus,
 .note:focus {
-  outline: 2px dashed rgba(139, 94, 60, 0.5);
-}
-
-
-.note::after,
-.quote::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.note:hover::after,
-.quote:hover::after {
-  opacity: 1;
+  outline: 2px dashed #d63384;
+  outline-offset: 2px;
 }

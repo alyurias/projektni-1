@@ -9,7 +9,7 @@ const saveBtn = document.getElementById("saveBtn");
 const clearBtn = document.getElementById("clearBtn");
 
 // Boje za ljepljive biljeske
-const colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
+const colors = ["noteColor1", "noteColor2", "noteColor3", "noteColor4", "noteColor5", "noteColor6"];
 
 // Primjeri slika i citata
 const sampleImages = [
@@ -19,10 +19,18 @@ const sampleImages = [
   "slike/slika4.png"
 ];
 
+// ISPRAVLJENI I BOLJI CITATI
 const sampleQuotes = [
-  "Svaka dovoljno napredna tehnologija jednaka je magiji. s“Arthur C. Clarke ",
-  "Tehnologija je rije koja opisuje nesto sto jos ne funkcionira. - Douglas Adams",
-  "Ne osnivate zajednice. Zajednice ves postoje. Pitanje koje treba postaviti je kako im moÅ¾ete pomoÄ‡i da budu bolje.â€â€“ Mark Zuckerberg"
+  "Budućnost pripada onima koji vjeruju u ljepotu svojih snova. - Eleanor Roosevelt",
+  "Jedini način da ostvarite velike stvari je da volite ono što radite. - Steve Jobs",
+  "Uspjesh ne dolazi slučajno. On dolazi iz rada, upornosti, učenja, žrtve i najviše od svega, ljubavi prema onome što radite. - Pelé",
+  "Imaginacija je važnija od znanja. - Albert Einstein",
+  "Sve što možete zamisliti, stvarno je. - Pablo Picasso",
+  "Ne plašite se savršenstva - nikada ga nećete postići. - Salvador Dalí",
+  "Kreativnost je zabavna inteligencija. - Albert Einstein",
+  "Umjetnost iscjeljuje ono što nauka ne može izliječiti. - Carl Jung",
+  "Svaki umjetnik je prvo amater. - Ralph Waldo Emerson",
+  "Inspiracija postoji, ali mora te zateći dok radiš. - Pablo Picasso"
 ];
 
 // ======= Usluzni program za stvaranje stavki koje se mogu povlaciti i brisati =======
@@ -64,7 +72,6 @@ function makeDraggable(el) {
   }
 }
 
-
 addNoteBtn.addEventListener("click", () => {
   const note = document.createElement("div");
   note.className = "note " + colors[Math.floor(Math.random() * colors.length)];
@@ -75,7 +82,6 @@ addNoteBtn.addEventListener("click", () => {
   makeDraggable(note);
   board.appendChild(note);
 });
-
 
 addImageBtn.addEventListener("click", () => {
   const div = document.createElement("div");
@@ -99,7 +105,6 @@ addQuoteBtn.addEventListener("click", () => {
   makeDraggable(q);
   board.appendChild(q);
 });
-
 
 saveBtn.addEventListener("click", saveBoard);
 
